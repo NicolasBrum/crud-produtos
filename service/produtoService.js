@@ -1,4 +1,4 @@
-import produto_repository from "../repository/produtoRepository.js";
+import produtoRepository from "../repository/produtoRepository.js";
 
 function inserir(produto) {
   if (!produto.nome || produto.preco === undefined) {
@@ -9,11 +9,11 @@ function inserir(produto) {
     console.log("Preco precisa ser um numero!");
     return;
   }
-  produto_repository.inserir(produto);
+  produtoRepository.inserir(produto);
 }
 
 function listar() {
-  return produto_repository.listar();
+  return produtoRepository.listar();
 }
 
 function buscarPorId(id) {
@@ -21,7 +21,7 @@ function buscarPorId(id) {
     console.log("id deve ser um numero!");
     return;
   }
-  const produto = produto_repository.buscarPorId(id);
+  const produto = produtoRepository.buscarPorId(id);
   return produto ? produto : "nao ha produtos!";
 }
 
@@ -34,12 +34,12 @@ function atualizar(id, produto) {
     console.log("campo nome ou preco precisam existir!");
     return;
   }
-  if (!produto_repository.buscarPorId(id)) {
+  if (!produtoRepository.buscarPorId(id)) {
     console.log("produto nao existe!");
     return;
   }
 
-  produto_repository.atualizar(id, produto);
+  produtoRepository.atualizar(id, produto);
 }
 
 function deletar(id) {
@@ -48,12 +48,12 @@ function deletar(id) {
     return;
   }
 
-  if (!produto_repository.buscarPorId(id)) {
+  if (!produtoRepository.buscarPorId(id)) {
     console.log("nao ha produtos!");
     return;
   }
 
-  produto_repository.deletar(id);
+  produtoRepository.deletar(id);
 }
 
 export default {
